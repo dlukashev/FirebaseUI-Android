@@ -65,10 +65,10 @@ Gradle, add the dependency:
 ```groovy
 dependencies {
     // ...
-    implementation 'com.firebaseui:firebase-ui-auth:6.2.0'
+    implementation 'com.firebaseui:firebase-ui-auth:6.2.1'
 
     // Required only if Facebook login support is required
-    // Find the latest Facebook SDK releases here: https://goo.gl/Ce5L94
+    // Find the latest Facebook SDK releases here: https://github.com/facebook/facebook-android-sdk/blob/master/CHANGELOG.md
     implementation 'com.facebook.android:facebook-login:4.x'
 }
 ```
@@ -786,11 +786,12 @@ AuthMethodPickerLayout customLayout = new AuthMethodPickerLayout
     // ...
     .setTosAndPrivacyPolicyId(R.id.baz)
     .build();
-
-AuthUI.getInstance(this).createSignInIntentBuilder()
-    // ...
-    .setAuthMethodPickerLayout(customLayout)
-    .build());
+    
+startActivityForResult(
+    AuthUI.getInstance(this).createSignInIntentBuilder()
+        // ...
+        .setAuthMethodPickerLayout(customLayout)
+        .build());
 ```
 
 ### Strings

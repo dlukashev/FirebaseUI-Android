@@ -30,7 +30,10 @@ public abstract class AppCompatBase extends HelperActivityBase {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setTheme(R.style.FirebaseUI); // Provides default values
-        setTheme(getThemeId());
+        try {
+            setTheme(getThemeId());
+        } catch (Exception ignore) {
+        }
     }
 
     protected int getThemeId() {

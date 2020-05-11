@@ -45,6 +45,7 @@ public class FlowParameters implements Parcelable {
             String appName = in.readString();
             List<IdpConfig> providerInfo = in.createTypedArrayList(IdpConfig.CREATOR);
             int themeId = in.readInt();
+            int loginThemeId = in.readInt();
             int logoId = in.readInt();
             String termsOfServiceUrl = in.readString();
             String privacyPolicyUrl = in.readString();
@@ -59,6 +60,7 @@ public class FlowParameters implements Parcelable {
                     appName,
                     providerInfo,
                     themeId,
+                    loginThemeId,
                     logoId,
                     termsOfServiceUrl,
                     privacyPolicyUrl,
@@ -85,6 +87,9 @@ public class FlowParameters implements Parcelable {
     @StyleRes
     public final int themeId;
 
+    @StyleRes
+    public final int loginThemeId;
+
     @DrawableRes
     public final int logoId;
 
@@ -109,6 +114,7 @@ public class FlowParameters implements Parcelable {
             @NonNull String appName,
             @NonNull List<IdpConfig> providers,
             @StyleRes int themeId,
+            @StyleRes int loginThemeId,
             @DrawableRes int logoId,
             @Nullable String termsOfServiceUrl,
             @Nullable String privacyPolicyUrl,
@@ -122,6 +128,7 @@ public class FlowParameters implements Parcelable {
         this.providers = Collections.unmodifiableList(
                 Preconditions.checkNotNull(providers, "providers cannot be null"));
         this.themeId = themeId;
+        this.loginThemeId = loginThemeId;
         this.logoId = logoId;
         this.termsOfServiceUrl = termsOfServiceUrl;
         this.privacyPolicyUrl = privacyPolicyUrl;
@@ -145,6 +152,7 @@ public class FlowParameters implements Parcelable {
         dest.writeString(appName);
         dest.writeTypedList(providers);
         dest.writeInt(themeId);
+        dest.writeInt(loginThemeId);
         dest.writeInt(logoId);
         dest.writeString(termsOfServiceUrl);
         dest.writeString(privacyPolicyUrl);

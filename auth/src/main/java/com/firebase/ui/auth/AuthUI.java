@@ -1204,6 +1204,7 @@ public final class AuthUI {
         final List<IdpConfig> mProviders = new ArrayList<>();
         int mLogo = NO_LOGO;
         int mTheme = getDefaultTheme();
+        int mLoginTheme = getDefaultTheme();
         String mTosUrl;
         String mPrivacyPolicyUrl;
         boolean mAlwaysShowProviderChoice = false;
@@ -1218,6 +1219,15 @@ public final class AuthUI {
         @NonNull
         public T setTheme(@StyleRes int theme) {
             mTheme = Preconditions.checkValidStyle(
+                    mApp.getApplicationContext(),
+                    theme,
+                    "theme identifier is unknown or not a style definition");
+            return (T) this;
+        }
+
+        @NonNull
+        public T setLoginTheme(@StyleRes int theme) {
+            mLoginTheme = Preconditions.checkValidStyle(
                     mApp.getApplicationContext(),
                     theme,
                     "theme identifier is unknown or not a style definition");
@@ -1433,6 +1443,7 @@ public final class AuthUI {
                     mApp.getName(),
                     mProviders,
                     mTheme,
+                    mLoginTheme,
                     mLogo,
                     mTosUrl,
                     mPrivacyPolicyUrl,

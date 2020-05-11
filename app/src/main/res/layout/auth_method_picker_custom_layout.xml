@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/custom_bg_gradient">
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/custom_logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

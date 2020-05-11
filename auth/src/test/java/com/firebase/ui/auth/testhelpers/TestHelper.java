@@ -158,6 +158,7 @@ public final class TestHelper {
                 DEFAULT_APP_NAME,
                 idpConfigs,
                 AuthUI.getDefaultTheme(),
+                AuthUI.getDefaultTheme(),
                 AuthUI.NO_LOGO,
                 null,
                 null,

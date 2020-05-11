@@ -91,6 +91,10 @@ public class AuthMethodPickerActivity extends AppCompatBase {
         return createBaseIntent(context, AuthMethodPickerActivity.class, flowParams);
     }
 
+    protected int getThemeId() {
+        return getFlowParams().loginThemeId;
+    }
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
